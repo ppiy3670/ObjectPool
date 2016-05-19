@@ -41,14 +41,16 @@ int main() {
 	ObjPool<PoolableObj> myObjPool;
 	
 	myObjPool.setMaxIdle(1);
-	myObjPool.setSizeLimit(16, 2);
+	myObjPool.setSizeLimit(5, 3);
 
 	thread t1(threadFunc, 1, &myObjPool);
 	thread t2(threadFunc, 2, &myObjPool);
 	thread t3(threadFunc, 3, &myObjPool);
+	thread t4(threadFunc, 4, &myObjPool);
 	
 	t1.join();
 	t2.join();
 	t3.join();
+	t4.join();
 	return 0;
 }
